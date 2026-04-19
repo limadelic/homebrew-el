@@ -2,24 +2,25 @@ class El < Formula
   desc "CLI for managing headless Claude Code sessions"
   homepage "https://github.com/limadelic/el"
   license "MIT"
-  version "0.1.9"
+  version "0.2.0"
 
-  url "https://github.com/limadelic/el/releases/download/v0.1.9-escript/el"
-  sha256 "5bf5ef1f854d080e0aa9a834095a311bc16e35219ef080c2feb3c87f20124cca"
-
-  depends_on "erlang"
+  if Hardware::CPU.arm?
+    url "https://github.com/limadelic/el/releases/download/v0.2.0/el_macos_arm64"
+    sha256 "f3202c396d084c50ed1b363fd730d61cffdfbac6fa7a49714ba1d42e8f154184"
+  else
+    url "https://github.com/limadelic/el/releases/download/v0.2.0/el_macos_x86_64"
+    sha256 "5fe44bf28d6d741075cb4ccf4f7d0be1c9460f85b956b27266531e2fce86c4c7"
+  end
 
   def install
-    bin.install "el"
+    if Hardware::CPU.arm?
+      bin.install "el_macos_arm64" => "el"
+    else
+      bin.install "el_macos_x86_64" => "el"
+    end
   end
 
   test do
     assert_match "usage", shell_output("#{bin}/el", 0)
-  end
-
-  livecheck do
-    url "https://github.com/limadelic/el/releases"
-    regex(/v(\d+(?:\.\d+)*)/i)
-    strategy :github_latest
   end
 end
