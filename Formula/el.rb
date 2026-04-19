@@ -24,4 +24,10 @@ class El < Formula
     output = shell_output("#{bin}/el ls")
     assert_match "Session", output
   end
+
+  livecheck do
+    url "https://github.com/limadelic/el/releases"
+    regex(/v(\d+(?:\.\d+)*)/i)
+    strategy :github_latest
+  end
 end
