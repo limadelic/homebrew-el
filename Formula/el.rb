@@ -4,12 +4,11 @@ class El < Formula
   license "MIT"
   version "0.1.16"
 
-  url "https://github.com/limadelic/el/releases/download/v0.1.16/el-macos-arm64.tar.gz"
-  sha256 "8cff3d8384341176cde9fcc1182e3abb25239a144fd160af59ebe76b72f6b8a8"
+  url "https://github.com/limadelic/el/releases/download/v0.1.16/el_macos_arm64"
+  sha256 "5af24e2dd922a3907ce8f2cfaa5f2712700a3db0b097cb297bca9317743ef008"
 
   def install
-    libexec.install Dir["*"]
-    bin.install_symlink libexec/"bin/el"
+    bin.install "el_macos_arm64" => "el"
   end
 
   test do
