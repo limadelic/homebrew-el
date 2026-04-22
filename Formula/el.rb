@@ -4,17 +4,10 @@ class El < Formula
   license "MIT"
   version "0.1.40"
 
-  url "https://github.com/limadelic/el/archive/refs/tags/v0.1.40.tar.gz"
-  sha256 "b748c60067c5fba5152f2acbdc67c8bf8b846f07e9d98062d8b5da293291c9bf"
-
-  depends_on "elixir"
-  depends_on "erlang"
+  url "https://github.com/limadelic/el/releases/download/v0.1.40/el"
+  sha256 "ebc3d37c340b26953decda3fb1534e1881f84be1bf20e3147ab94738986f527a"
 
   def install
-    system "mix", "local.hex", "--force"
-    system "mix", "local.rebar", "--force"
-    system "mix", "deps.get"
-    system "mix", "escript.build"
     bin.install "el"
   end
 
