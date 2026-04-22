@@ -5,7 +5,7 @@ class El < Formula
   version "0.1.40"
 
   url "https://github.com/limadelic/el/archive/refs/tags/v0.1.40.tar.gz"
-  sha256 "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed"
+  sha256 "b748c60067c5fba5152f2acbdc67c8bf8b846f07e9d98062d8b5da293291c9bf"
 
   depends_on "elixir"
   depends_on "erlang"
